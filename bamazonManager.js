@@ -19,7 +19,7 @@ connection.connect(function (err) {
 function managerView() {
     inquirer.prompt([
         {
-            message: "Manager options",
+            message: "Manager options:",
             type: "list",
             choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product", "Exit \n"],
             name: "task"
@@ -182,7 +182,7 @@ function addNewProduct() {
         var price = parseFloat(answer.price);
         var quant = parseInt(answer.count);
         connection.query(
-            "INSERT INTO products (product_name, department, price, stock_quantity) VALUES(?,?,?,?)",
+            "INSERT INTO products (product_name, department, price, stock_quantity, product_sales) VALUES(?,?,?,?,0.00)",
             [
                 newProduct,
                 dept,

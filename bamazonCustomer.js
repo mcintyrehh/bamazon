@@ -76,7 +76,20 @@ function printTable() {
                         console.log(`The total of your purchase is: $${total}.`)
                         printTable();
                     }
-                )
+                );
+                var prodSales = product.product_sales;
+                prodSales += (num * product.price);
+                connection.query("UPDATE products SET ? WHERE ?",
+                    [
+                        {
+                            product_sales: prodSales
+                        },
+                        {
+                            item_id: product.item_id
+                        }
+                    ],function(err) {
+                        if(err) throw err;
+                    })
             }
         })
     })
