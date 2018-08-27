@@ -14,7 +14,22 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     console.log("Connected as id " + connection.threadId + "\n");
-    printTable();
+    inquirer.prompt([
+        {
+            message: "Customer Actions:",
+            type: "list",
+            choices: ["Buy Something!", "Exit \n"],
+            name: "action"
+        }
+    ]).then(function(answer) {
+        switch (answer.action) {
+            case("Buy Something!"):
+                printTable();
+                break;
+            case("Exit \n"):
+                connection.end();
+        }
+    })
 })
 
 function printTable() {
@@ -35,7 +50,7 @@ function printTable() {
         //inquirer prompts to set user actions
         inquirer.prompt([
             {
-                message: "Please enter the ID of the product you would like to buy",
+                message: "Please enter the ID of the product you would like to buy:",
                 type: "input",
                 name: "product"
             },

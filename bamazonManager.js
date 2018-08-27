@@ -133,7 +133,7 @@ function addInventory() {
                     var stock = product.stock_quantity;
                     console.log("Restock successful!");
                     viewProducts();
-                    managerView();
+                    // managerView();
                 }
             )
 
