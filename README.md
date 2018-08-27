@@ -58,6 +58,7 @@ The manager view allows you to:
   This allows the highest level of function, the supervisor can:  
   * View Sales by Department
     * The first four columns are the result of a sql join of two tables, the "Total Profit (USD)" column is created on the fly from (Overhead Costs - Product Sales (USD))
+    * As you can see, my initial test department "Milk" is the only thing keeping us in business
     ![alt-text](https://github.com/mcintyrehh/bamazon/blob/master/demo_gifs/bamazonSupervisor-viewsalesdept.gif)
   * Create New Department
     * Add a whole new department by inputting the name, and Overhead Cost of the dept
